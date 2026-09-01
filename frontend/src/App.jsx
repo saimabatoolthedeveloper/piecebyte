@@ -56,7 +56,7 @@ function App() {
 
     try {
       const response = await fetch(
-        "http://localhost:5000/api/chat",
+        "https://piecebyte-backend.vercel.app/api/chat",
         {
           method: "POST",
           headers: {
@@ -103,7 +103,7 @@ function App() {
 
     try {
       const response = await fetch(
-        "http://localhost:5000/api/clear-chat",
+        "https://piecebyte-backend.vercel.app/api/clear-chat",
         {
           method: "POST",
           headers: {
