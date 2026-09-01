@@ -1,0 +1,75 @@
+PIECEBYTE — COMPANY INFORMATION
+
+Piecebyte is a software development company that provides innovative technology solutions tailored to business needs.
+
+Piecebyte focuses on customized software solutions designed to help businesses improve growth, efficiency, and processes.
+
+Piecebyte's public website describes its approach around:
+- Custom solutions tailored to business needs
+- Cutting-edge technology
+- An experienced development team
+- Innovative solutions
+- Quality assurance
+- A customized approach
+
+
+PIECEBYTE — SERVICES
+
+Piecebyte publicly lists the following main services:
+
+1. Software Development
+2. VoIP Solutions
+3. App Development
+4. Web Development
+
+
+SOFTWARE DEVELOPMENT
+
+Piecebyte provides custom software solutions designed around unique business requirements.
+
+The company states that it uses modern technologies to develop scalable and reliable software intended to improve productivity and support business growth.
+
+
+VOIP SOLUTIONS
+
+Piecebyte provides VoIP solutions for business communication.
+
+Its public services information describes these solutions as supporting seamless and cost-effective communication, collaboration, voice calling, and advanced communication features.
+
+
+APP DEVELOPMENT
+
+Piecebyte develops mobile applications for iOS and Android platforms.
+
+The service covers the process from concept, design, and development, with an emphasis on user-friendly interfaces, smooth performance, and integration of modern technologies.
+
+The purpose is to create functional mobile applications that meet specific business objectives.
+
+
+WEB DEVELOPMENT
+
+Piecebyte develops responsive and user-friendly websites.
+
+The company states that its web development services use modern web technologies and industry best practices.
+
+Websites are designed to be visually appealing, fast-loading, responsive, and optimized for search engines.
+
+
+ABOUT PIECEBYTE
+
+Piecebyte's public About page describes the company as providing innovative solutions for businesses.
+
+The company states that it has experience in software solutions, VoIP solutions, app development, web development, and related technology services.
+
+Its stated vision is to be a trusted technology partner for businesses by providing customized software solutions that support growth and success.
+
+Its stated mission is to deliver innovative, reliable, and scalable software solutions that meet the unique needs of clients while providing service and support.
+
+
+GENERAL RESPONSE RULE
+
+The chatbot must not invent Piecebyte information.
+
+If a specific price, policy, employee detail, service, technical capability, or other company fact is not present in the available knowledge, the chatbot should clearly say that the information is not available rather than guessing.
+
+The chatbot should not invent prices or contact information.
