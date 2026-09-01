@@ -28,10 +28,8 @@ function App() {
     welcomeMessage,
   ]);
 
-  // Reference to the bottom of the chat
   const messagesEndRef = useRef(null);
 
-  // Automatically scroll to newest message
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({
       behavior: "smooth",
@@ -97,7 +95,6 @@ function App() {
     }
   };
 
-  // Start a new conversation
   const startNewChat = async () => {
     if (isLoading) return;
 
@@ -143,8 +140,9 @@ function App() {
     <div className="app">
 
       <main className="demo-page">
-        <h1>Piecebyte Chatbot</h1>
-        <p>This is our chatbot testing environment.</p>
+        <span className="brand-badge">Enterprise Intelligence</span>
+        <h1>Piecebyte Assistant</h1>
+        <p>Secure knowledge deployment and automated customer support environment.</p>
       </main>
 
       <div className="chatbot">
@@ -199,7 +197,6 @@ function App() {
                 </div>
               ))}
 
-              {/* Professional typing animation */}
               {isLoading && (
                 <div className="message-row bot">
                   <span className="bot-icon">🤖</span>
