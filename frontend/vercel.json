@@ -2,7 +2,7 @@
   "rewrites": [
     {
       "source": "/api/:path*",
-      "destination": "http://YOUR_BACKEND_IP_OR_DOMAIN:5000/api/:path*"
+      "destination": "https://spicy-humans-shine.loca.lt/api/:path*"
     }
   ]
 }
