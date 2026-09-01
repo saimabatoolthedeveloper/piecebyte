@@ -14,8 +14,15 @@ const getSessionId = () => {
 
 const welcomeMessage = {
   sender: "bot",
-  text: "Hi! 👋 How can I help you today?",
+  text: "Hi! 👋 Welcome to Piecebyte. How can I help you today?",
 };
+
+const suggestedQuestions = [
+  "What services does Piecebyte provide?",
+  "I need a website",
+  "Tell me about app development",
+  "What are VoIP solutions?",
+];
 
 function App() {
   const [isOpen, setIsOpen] = useState(false);
@@ -24,9 +31,7 @@ function App() {
 
   const [sessionId] = useState(() => getSessionId());
 
-  const [messages, setMessages] = useState([
-    welcomeMessage,
-  ]);
+  const [messages, setMessages] = useState([welcomeMessage]);
 
   const messagesEndRef = useRef(null);
 
@@ -36,10 +41,10 @@ function App() {
     });
   }, [messages, isLoading]);
 
-  const sendMessage = async () => {
-    if (!message.trim() || isLoading) return;
+  const sendMessage = async (textToSend = message) => {
+    if (!textToSend.trim() || isLoading) return;
 
-    const userMessage = message.trim();
+    const userMessage = textToSend.trim();
 
     setMessages((previousMessages) => [
       ...previousMessages,
@@ -54,7 +59,7 @@ function App() {
 
     try {
       const response = await fetch(
-        "https://piecebyte-backend.vercel.app/api/chat",
+        "http://localhost:5000/api/chat",
         {
           method: "POST",
           headers: {
@@ -99,8 +104,8 @@ function App() {
     if (isLoading) return;
 
     try {
-      const response = await fetch(
-        "https://piecebyte-backend.vercel.app/api/clear-chat",
+      await fetch(
+        "http://localhost:5000/api/clear-chat",
         {
           method: "POST",
           headers: {
@@ -112,21 +117,9 @@ function App() {
         }
       );
 
-      if (!response.ok) {
-        throw new Error("Could not clear chat");
-      }
-
       setMessages([welcomeMessage]);
     } catch (error) {
       console.error("Clear chat error:", error);
-
-      setMessages((previousMessages) => [
-        ...previousMessages,
-        {
-          sender: "bot",
-          text: "Sorry, I couldn't start a new chat. Please try again.",
-        },
-      ]);
     }
   };
 
@@ -139,17 +132,41 @@ function App() {
   return (
     <div className="app">
 
+      {/* Demo Page */}
       <main className="demo-page">
-        <span className="brand-badge">Enterprise Intelligence</span>
-        <h1>Piecebyte Assistant</h1>
-        <p>Secure knowledge deployment and automated customer support environment.</p>
+        <div className="demo-content">
+
+          <div className="demo-badge">
+            Enterprise Intelligence
+          </div>
+
+          <h1>
+            Meet the <span>Piecebyte Assistant</span>
+          </h1>
+
+          <p>
+            Get quick information about Piecebyte, its technology
+            services, and business solutions through our intelligent
+            domain-specific assistant.
+          </p>
+
+          <div className="demo-info">
+            <span>💻 Software Development</span>
+            <span>🌐 Web Development</span>
+            <span>📱 App Development</span>
+            <span>📞 VoIP Solutions</span>
+          </div>
+
+        </div>
       </main>
 
+      {/* Chatbot */}
       <div className="chatbot">
 
         {isOpen && (
           <div className="chat-window">
 
+            {/* Header */}
             <div className="chat-header">
 
               <div>
@@ -171,7 +188,7 @@ function App() {
                 <button
                   className="close-button"
                   onClick={() => setIsOpen(false)}
-                  aria-label="Close chatbot"
+                  title="Close chat"
                 >
                   ×
                 </button>
@@ -180,6 +197,7 @@ function App() {
 
             </div>
 
+            {/* Messages */}
             <div className="chat-body">
 
               {messages.map((msg, index) => (
@@ -197,15 +215,40 @@ function App() {
                 </div>
               ))}
 
+              {/* Suggested Questions */}
+              {messages.length === 1 && !isLoading && (
+                <div className="suggested-section">
+
+                  <p>Try asking:</p>
+
+                  <div className="suggested-questions">
+
+                    {suggestedQuestions.map((question) => (
+                      <button
+                        key={question}
+                        onClick={() => sendMessage(question)}
+                      >
+                        {question}
+                      </button>
+                    ))}
+
+                  </div>
+
+                </div>
+              )}
+
+              {/* Professional Typing Indicator */}
               {isLoading && (
                 <div className="message-row bot">
+
                   <span className="bot-icon">🤖</span>
 
-                  <div className="message-bubble typing-indicator">
+                  <div className="typing-bubble">
                     <span></span>
                     <span></span>
                     <span></span>
                   </div>
+
                 </div>
               )}
 
@@ -213,11 +256,12 @@ function App() {
 
             </div>
 
+            {/* Input */}
             <div className="chat-input-area">
 
               <input
                 type="text"
-                placeholder="Type your message..."
+                placeholder="Ask about Piecebyte..."
                 value={message}
                 onChange={(event) =>
                   setMessage(event.target.value)
@@ -228,7 +272,7 @@ function App() {
 
               <button
                 className="send-button"
-                onClick={sendMessage}
+                onClick={() => sendMessage()}
                 disabled={isLoading}
                 aria-label="Send message"
               >
@@ -240,6 +284,7 @@ function App() {
           </div>
         )}
 
+        {/* Floating Button */}
         <button
           className={`chat-button ${isOpen ? "open" : ""}`}
           onClick={() => setIsOpen(!isOpen)}
